@@ -1,0 +1,12 @@
+{
+  "name": "minutes-server",
+  "version": "1.0.0",
+  "description": "Server to publish meeting minutes and store them in a central location",
+  "license": "GPL-2.0",
+  "author": "Luca Joseph Kim",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
