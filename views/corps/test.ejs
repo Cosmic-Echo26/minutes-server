@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+
+        <title>Meeting Minutes</title>
+
+        <link rel="stylesheet" href="/css/global.css">
+        <link rel="stylesheet" href="/css/corps.css">
+        <link rel="stylesheet" href="/css/corps/test.css">
+    </head>
+    <body>
+        <header>
+            <h1>Test Corp.</h1>
+            <h2>Test Corp. is not a real corperation, it was created to test this website</h2>
+        </header>
+
+        <section>
+            <aside>
+                <%- include('../resources/navpanel') -%>
+            </aside>
+
+            <div class="content">
+                <div class="information-wrapper">
+                    <div class="information">
+                        <div class="details">
+                            <h3>Last Meeting Date: <%= lastmeet %></h3>
+                        </div>
+
+                        <div class="details">
+                            <h4>Meeting Time: <%= time %></h4>
+                            <h4>Meeting Day: <%= day %></h4>
+                            <h4>Meeting Location: <%= location %></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="minutes">
+                    <% minutes.forEach(function(item) { %>
+                        <div class="minute-row">
+                            <h2><%= item.date %></h2>
+                            <p><%= item.summary %></p>
+
+                            <a href="<%= item.fileUrl %>" download>
+                                Download
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

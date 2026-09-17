@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Server to publish meeting minutes and store them in a central location",
   "license": "GPL-2.0",
-  "author": "Luca Joseph Kim",
+  "author": "Cosmic Echo",
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
   }
 }

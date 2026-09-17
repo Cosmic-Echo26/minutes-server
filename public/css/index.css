@@ -1,0 +1,36 @@
+:root {
+    --header-background: coral /*linear-gradient(to right, coral, darksalmon)*/;
+    --header-text-color: navajowhite;
+
+    --aside-background: darksalmon;
+    --aside-text-color: gainsboro;
+
+    --central-background: sandybrown /*linear-gradient(to bottom, sandybrown, peru)*/;
+    --central-text-color: seashell;
+}
+
+.desc-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: none;
+}
+.desc-wrapper h2{
+    margin: 0;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 2.3rem;
+    color: var(--central-text-color);
+}
+.desc-wrapper p {
+    margin: 0;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 1.5rem;
+    color: var(--central-text-color);
+}
+
+section div {
+    display: flex;
+    flex-direction: column;
+    background: var(--central-background);
+    width: 80%;
+    padding: 10px 20px 20px 20px;
+}

@@ -1,0 +1,60 @@
+/*
+This code is the main css file for the entire project. To use it, create another css file for the indevidual page and set the color variables.
+You must set the following:
+--header-background
+--header-text-color
+
+--aside-background
+--aside-text-color
+
+--central-background
+--central-text-color
+
+And, if you are making another corp:
+--central-element-background
+*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--header-background);
+}
+header h1 {
+    color: var(--header-text-color);
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Roboto', 'sans-serif';
+}
+header h2 {
+    color: var(--header-text-color);
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+section {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+}
+
+section aside {
+    background: var(--aside-background);
+    width: 20%;
+}

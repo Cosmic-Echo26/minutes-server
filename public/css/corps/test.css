@@ -1,0 +1,16 @@
+/*
+This is the customization for global.css, see more info in global.css
+*/
+
+:root {
+    --header-background: steelblue /*linear-gradient(to right, coral, darksalmon)*/;
+    --header-text-color: gainsboro;
+
+    --aside-background: lightsteelblue;
+    --aside-text-color: white;
+
+    --central-background: lightskyblue /*linear-gradient(to bottom, sandybrown, peru)*/;
+    --central-text-color: snow;
+    --central-element-background: deepskyblue;
+    --central-element-text-color: seashell;
+}
