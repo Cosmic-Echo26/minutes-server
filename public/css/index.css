@@ -27,7 +27,14 @@
     color: var(--central-text-color);
 }
 
-section div {
+.content {
+    display: flex;
+    flex-direction: column;
+    background: var(--central-background);
+    width: 80%;
+    padding: 10px 20px 20px 20px;
+}
+.content div {
     display: flex;
     flex-direction: column;
     background: var(--central-background);
