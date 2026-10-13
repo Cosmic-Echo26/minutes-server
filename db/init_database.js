@@ -3,7 +3,7 @@ const path = require('path');
 
 function createDB(name) {
   return new Promise((resolve, reject) => {
-    const dbPath = path.join(__dirname, `databases`, `${name}.db`);
+    const dbPath = path.join(__dirname, `${name}.db`);
     
     const db = new sqlite3.Database(dbPath, (err) => {
       if (err) {
