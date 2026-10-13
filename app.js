@@ -1,24 +1,30 @@
 const express = require("express");
 const app = express();
 
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
-app.use(express.static('public'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.set('view engine', 'ejs')
 
-const PORT = process.env.PORT || 8080
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+
+const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index');
 })
 
-
 // Routers
-corps_router = require('./routes/corps')
+corps_router = require('./routes/corps');
 app.use('/corps', corps_router);
+
+minutes_router = require('./routes/add_minutes');
+app.use('/api/add-minutes', minutes_router);
 
 
 app.listen(PORT, ()=> {
-    console.log(`Server open on port ${PORT}`)
+    console.log(`Server open on port ${PORT}`);
 })
