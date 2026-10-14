@@ -4,6 +4,7 @@ const path = require('path');
 
 const createDB = require(path.join(__dirname, '..', 'db', 'init_database.js'))
 
+//Initialize multer for file saving
 function save_files() {
     const storage = multer.diskStorage({
         destination: (req, file, cb) => {
@@ -24,6 +25,8 @@ function save_files() {
 
     return multer({ storage: storage });
 }
+
+//Save data & file path in a sqlite database
 async function save_data(dateInput, summary, file_path, corp_name) {
     try {
         const db = await createDB(corp_name);
@@ -48,6 +51,8 @@ async function save_data(dateInput, summary, file_path, corp_name) {
         console.log("Error saving file data: ", err)
     }
 }
+
+//Get data from a sqlite database
 async function get_all_entries(corp_name) {
     try {
         const db = await createDB(corp_name);

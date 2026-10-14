@@ -5,6 +5,15 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+app.use(session({
+    secret: "fXGYhlQNtr",
+    saveUninitialized: true,
+    resave: true
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -23,6 +32,9 @@ app.use('/corps', corps_router);
 
 minutes_router = require('./routes/add_minutes');
 app.use('/api/add-minutes', minutes_router);
+
+accounts_router = require('./routes/accounts');
+app.use('/api/account', accounts_router);
 
 
 app.listen(PORT, ()=> {
