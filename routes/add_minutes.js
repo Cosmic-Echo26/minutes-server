@@ -16,7 +16,7 @@ router.post('/:name', upload.single('fileUpload'), async (req, res) => {
 
         const result = await fileHandler.save_data(dateInput, summary, filename, req.params.name);
         
-        res.status(200).send('Minutes Added');
+        res.status(200).send(`Minutes Added, <a href=\"/corps/${req.params.name}\">RETURN</a>`);
     } catch (error) {
         res.status(500).send(error);
         console.error("Error saving minutes: ", error)

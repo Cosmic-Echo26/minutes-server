@@ -43,7 +43,7 @@
 
                             const userAccess = userData.access;
                             if (userAccess.includes('test')) {
-                                document.getElementById('upload').style.display = 'flex';
+                                document.getElementById('upload').style.visibility = 'visible';
                             }
 
                         })();
@@ -87,7 +87,7 @@
         <div class="popup-backdrop" id="popup-backdrop">
             <div class="popup-box">
                 <h2>Add Minutes</h2>
-                <form action="http://localhost:3000/api/add-minutes/test" method="POST" enctype="multipart/form-data">
+                <form action="/api/add-minutes/test" method="POST" enctype="multipart/form-data">
                     <div>
                         <label for="dateInput">Date</label>
                         <input type="date" name="dateInput"></input>

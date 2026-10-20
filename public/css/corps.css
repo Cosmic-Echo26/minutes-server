@@ -35,7 +35,7 @@
 }
 
 .upload {
-    display: none; /* Display sets to flex in js if user has access */
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
@@ -45,6 +45,8 @@
 
     background: var(--central-element-background);
     
+    visibility: hidden; /* Sets to visible if user is logged in */
+
     border-radius: 15px;
 }
 .upload svg {
