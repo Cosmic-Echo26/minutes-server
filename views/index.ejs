@@ -11,8 +11,6 @@
 
         <link rel="stylesheet" href="/css/popup.css">
         <script src="/javascript/popups.js"></script>
-
-        <script src="/javascript/sign-in.js"></script>
     </head>
     <body>
         <header>
@@ -22,7 +20,35 @@
 
         <section>
             <aside>
-                <button onclick="open_popup()">Log In</button>
+                <script>
+                    (async () => {
+                        userData = await getUserData();
+
+                        console.log(userData)
+
+                        if (userData.loggedIn === true) {
+                            document.getElementById("account-button").innerHTML = "Log Out";
+                            
+                            document.getElementById("account-button").onclick = async() => {
+                                try {
+                                    const response = await fetch('/api/account/logout', {
+                                        method: 'POST',
+                                        credentials: "include"
+                                    });
+
+                                    if (response.ok) {
+                                        const html = await response.text();
+                                        document.body.innerHTML = html;
+                                    }
+                                } catch (error) {
+                                    console.error("Logout error:", error);
+                                }
+                            }
+                        }
+                    })();
+                </script>
+
+                <button onclick="open_popup()" id="account-button">Log In</button>
                 <%- include('resources/navpanel') -%>
             </aside>
 
@@ -49,7 +75,7 @@
             </div>
         </section>
 
-        <!-- Upload -->
+        <!-- Log in/out popups -->
         <div class="popup-backdrop" id="popup-backdrop">
             <div class="popup-box">
                 <h2>Login</h2>

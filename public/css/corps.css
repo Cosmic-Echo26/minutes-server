@@ -35,7 +35,7 @@
 }
 
 .upload {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 15px;
