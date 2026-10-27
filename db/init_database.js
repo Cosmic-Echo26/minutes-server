@@ -1,8 +1,8 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-//Create or connect to database, used in data saving functions
-function createDB(name) {
+//Create or connect to database. Used mostly in file_handler.js and/or in data saving functions.
+function createDB(name, row1 = "date", row2 = "summary", row3 = "file_path") {
   return new Promise((resolve, reject) => {
     const dbPath = path.join(__dirname, `${name}.db`);
     
@@ -17,9 +17,9 @@ function createDB(name) {
     db.run(`
       CREATE TABLE IF NOT EXISTS entries (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        date TEXT NOT NULL,
-        summary TEXT NOT NULL,
-        file_path TEXT NOT NULL,
+        ${row1} TEXT NOT NULL,
+        ${row2} TEXT NOT NULL,
+        ${row3} TEXT NOT NULL,
         upload_date DATETIME DEFAULT CURRENT_TIMESTAMP
       )
     `, (err) => {
