@@ -25,7 +25,11 @@ app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { admin: process.env.ADMIN_EMAIL });
+})
+
+app.get('/help', (req, res) => {
+    res.status(501).send("501 Not implemented")
 })
 
 // Routers
