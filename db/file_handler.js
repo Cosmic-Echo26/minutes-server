@@ -18,8 +18,11 @@ function save_files() {
             cb(null, uploadDir);
         },
         filename: (req, file, cb) => {
-            const originalName = path.parse(file.originalname).name.replace(/\s+/g, '-');
-            cb(null, `${originalName}--${new Date().toISOString().slice(0,10)}--${Math.floor((Math.random() * 1000) + 1)}`);
+            const parsedFile = path.parse(file.originalname);
+            const originalName = parsedFile.name.replace(/\s+/g, '-');
+            const ext = parsedFile.ext; // Get the extension (includes the dot)
+    
+            cb(null, `${originalName}--${new Date().toISOString().slice(0,10)}--${Math.floor((Math.random() * 1000) + 1)}${ext}`);
         }
     });
 

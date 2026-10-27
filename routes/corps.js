@@ -4,16 +4,22 @@ const path = require('path');
 
 const fileHandler = require('../db/file_handler')
 
+const corps = [
+    "test",
+]
 
-router.get('/test', async (req, res) => {
+router.get('/:name', async (req, res) => {
+    if (!corps.includes(req.params.name)) {
+        res.status(404).send("404 Not found");
+        return;
+    }
+
     try {
-        const minutes = await fileHandler.get_entries("test");
+
+        const minutes = await fileHandler.get_entries(req.params.name);
         
-        res.render(path.join('corps', 'test'), { 
-            time: '1:00', 
-            day: 'Monday', 
-            location: 'Meeting Room', 
-            lastmeet: '01/01/2026',
+        res.render(path.join('corps', req.params.name), { 
+            lastmeet: minutes[0].date,
             minutes: minutes
         });
     } catch (error) {
