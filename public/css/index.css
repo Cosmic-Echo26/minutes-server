@@ -1,0 +1,70 @@
+:root {
+    --header-background: coral /*linear-gradient(to right, coral, darksalmon)*/;
+    --header-text-color: navajowhite;
+
+    --aside-background: darksalmon;
+    --aside-text-color: gainsboro;
+
+    --central-background: sandybrown /*linear-gradient(to bottom, sandybrown, peru)*/;
+    --central-text-color: seashell;
+
+    --central-element-background: deepskyblue;
+    --central-element-text-color: seashell;
+    --central-element-element-background: lightsteelblue;
+}
+
+.desc-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: none;
+}
+.desc-wrapper h2{
+    margin: 0;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 2.3rem;
+    color: var(--central-text-color);
+}
+.desc-wrapper p {
+    margin: 0;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 1.5rem;
+    color: var(--central-text-color);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background: var(--central-background);
+    width: 80%;
+    padding: 10px 20px 20px 20px;
+}
+.content div {
+    display: flex;
+    flex-direction: column;
+    background: var(--central-background);
+    width: 80%;
+    padding: 10px 20px 20px 20px;
+}
+
+section aside button {
+    margin: 10px;
+    padding: 5px;
+
+    font-size: 1.5rem;
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: bold;
+    
+    border: none;
+    border-radius: 15px;
+
+    background: var(--header-background);
+    color: var(--header-text-color)
+}
+section aside button:hover {
+    background-color: color-mix(in srgb, var(--header-background) 97%, black 3%);
+    color: color-mix(in srgb, var(--header-text-color) 97%, black 3%)
+}
+section aside button:active {
+    background-color: color-mix(in srgb, var(--header-background) 90%, black 10%);
+    color: color-mix(in srgb, var(--header-text-color) 90%, black 10%);
+}

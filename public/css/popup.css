@@ -1,0 +1,79 @@
+.popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: grid;
+    place-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    z-index: 1000;
+}
+
+.popup-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    background: var(--central-element-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.popup-backdrop.active .popup-box {
+    transform: scale(1);
+}
+
+
+
+.popup-box h2 {
+    color: var(--central-element-text-color);
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+
+    margin: 0;
+}
+.popup-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin: 0;
+}
+.popup-box form div {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    color: var(--central-element-text-color);
+
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fileInput {
+    margin: 0;
+
+    background: var(--central-element-element-background);
+    color: var(--central-element-text-color);
+    font-size: 1rem;
+}

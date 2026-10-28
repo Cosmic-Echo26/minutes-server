@@ -1,0 +1,22 @@
+{
+  "name": "minutes-server",
+  "version": "1.0.0",
+  "description": "Server to publish meeting minutes and store them in a central location",
+  "license": "GPL-2.0",
+  "author": "Cosmic Echo",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.4.0",
+    "sqlite3": "^6.0.1"
+  }
+}
