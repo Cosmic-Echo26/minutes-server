@@ -20,7 +20,7 @@ function save_files() {
         filename: (req, file, cb) => {
             const parsedFile = path.parse(file.originalname);
             const originalName = parsedFile.name.replace(/\s+/g, '-');
-            const ext = parsedFile.ext; // Get the extension (includes the dot)
+            const ext = parsedFile.ext;
     
             cb(null, `${originalName}--${new Date().toISOString().slice(0,10)}--${Math.floor((Math.random() * 1000) + 1)}${ext}`);
         }
@@ -98,7 +98,6 @@ async function get_all_entries(name, row1 = "date", row2 = "summary", row3 = "fi
                     [row2]: row[row2],
                     fileURL: `/files/${name}/${row[row3]}`
                 }));
-                
 
                 resolve(formattedEntries);
             });
@@ -110,7 +109,7 @@ async function get_all_entries(name, row1 = "date", row2 = "summary", row3 = "fi
 
 async function get_all_accounts(row1 = "email", row2 = "password", row3 = "access") {
     try {
-        const db = await createDB("accounts");
+        const db = await createDB("accounts", row1, row2, row3);
 
         return new Promise((resolve, reject) => {
             db.all(`SELECT ${row1}, ${row2}, ${row3} FROM entries`, [], (err, rows) => {

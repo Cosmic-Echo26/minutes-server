@@ -17,9 +17,16 @@ router.get('/:name', async (req, res) => {
     try {
 
         const minutes = await fileHandler.get_entries(req.params.name);
+        let lastMeet;
+
+        try {
+            lastMeet = minutes[0].date;
+        } catch (err) {
+            lastMeet = "None"
+        }
         
         res.render(path.join('corps', req.params.name), { 
-            lastmeet: minutes[0].date,
+            lastmeet: lastMeet,
             minutes: minutes
         });
     } catch (error) {

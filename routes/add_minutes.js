@@ -5,6 +5,8 @@ const fileHandler = require('../db/file_handler');
 const upload = fileHandler.save_files();
 
 router.post('/:name', upload.single('fileUpload'), async (req, res) => {
+    if (!req.session || !req.session.email || !req.session.access.includes('test')) return res.status(401).send("401 Unauthorized");
+    
     try {
         const dateInput = req.body.dateInput;
         const summary = req.body.summary;
